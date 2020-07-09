@@ -4,15 +4,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## technologie utilisée
 Front end:
+
 -Angular 9.
+
 -Angular material UI.
+
 -Axios HTTP.
 
 Back end:
+
 -Node.js.
+
 -Express.js.
+
 -Mailgun-js.
+
 -Nodemailer.
+
 -MongoDB.
 
 ## Development server
