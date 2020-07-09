@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## technologie utilisée
 Front end:
--Angular 9 &
+-Angular 9 &  d
 -Angular material UI &
 -Axios HTTP &
 
