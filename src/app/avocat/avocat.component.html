@@ -1,0 +1,75 @@
+<body style="background-color:black;">
+<div class="container bg-dark" style="padding-bottom:5rem;">
+    <h5 style="color:white">{{ param }}</h5>
+    <h2 style="color:white">Prenez rendez-vous en ligne</h2>
+<div class="row">
+    <div class="col-md-12 " >
+      
+     
+        <mat-vertical-stepper [linear]="!isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Choisr une date</ng-template>
+                <mat-form-field>
+                  <mat-label>Choisir une date</mat-label>
+                  <input matInput [matDatepicker]="dp" [matDatepickerFilter]="dateFilter" formControlName="firstCtrl">
+                  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                  <mat-datepicker #dp></mat-datepicker>
+                </mat-form-field>
+                <div> 
+                  <button mat-button matStepperNext (click)="afficheHeure()">Suivant</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Choisir une heure</ng-template>
+                <mat-form-field>
+                  <mat-label >Choisir une heure <mat-icon>alarm</mat-icon></mat-label>
+                  <select matNativeControl formControlName="secondCtrl" name="heure">
+                    <option *ngFor="let heure of heures"  [disabled] = heure.disabled>
+                   {{heure.viewValue}} 
+                    </option>
+                  </select>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Retour</button>
+                  <button mat-button matStepperNext >Valider</button>
+                </div>
+                
+              
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="nomFormGroup" label="Valider">
+          
+              <form [formGroup]="nomFormGroup">
+            
+              <mat-form-field appearance="fill">
+                <mat-label style="color:black;">Nom Complet</mat-label>
+                <input style="color:black;"  matInput formControlName="noms" required>
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+              <mat-label style="color:black;">E-mail</mat-label> 
+            <input style="color:black;" matInput type="email"  formControlName="email"  [class.is-invalid] = "nomFormGroup.get('email').invalid && nomFormGroup.get('email').touched">
+            <div *ngIf="(primEmail.invalid && primEmail.touched) || primEmail.dirty">
+              <small *ngIf="primEmail.errors?.required" class="text-danger">E-Mail est requis</small>
+              <!--question mark(?) is a safe navigation operator-->
+              <small *ngIf="primEmail.errors?.pattern" class="text-danger">Adresse non valide</small>
+            </div>
+          </mat-form-field>
+            <br>
+              <button mat-button matStepperNext [disabled]="!nomFormGroup.valid"   (click)="[insererRdv(),stepper.reset()]">Valider votre rendez-vous</button>
+            
+    
+            </form>
+            <br>
+          
+            </mat-step> 
+          </mat-vertical-stepper>
+    </div>
+    <div *ngIf="message_validation" class="alert alert-success" role="alert" style="margin-top: 10px; margin-left: 12px;"><strong>Votre rendez-vous est  réservé</strong> </div>
+</div>
+</div>
+
+</body>

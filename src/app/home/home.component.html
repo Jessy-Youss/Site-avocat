@@ -1,0 +1,42 @@
+
+<div class="container-fluid " style="background-color:black;" >
+<nav class="navbar navbar-expand-md navbar-light " >
+    <div > 
+        <img  style="background-color:white;" class="img-responsive" style="height:140px;" src="assets/avocat.png" alt="avocat">
+       </div>
+    <button style="color:white;"type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span style="color:white" class="navbar-toggler-icon bg-white"></span>
+    </button>
+
+    <div style="color:white" class="collapse navbar-collapse" id="navbarCollapse" style="height:4rem;" >
+       
+       
+        <div class="navbar-nav ml-auto">
+            <div class="row"> 
+                <div class=" col-md-4 ">
+            <a [routerLink]="['']" class="nav-item nav-link " style="color:white">Accueil</a>
+                </div>
+                <div class="col-md-4">
+            <li class="nav-item dropdown">
+                <a style="color:white" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Prendre RDV 
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="avocat/2">Avocat Sonia Neto</a>
+                  <a class="dropdown-item" href="avocat/1">Avocat Christophe Youssif</a>
+                  <div class="dropdown-divider"></div>
+                
+                </div>
+              </li>
+              </div>
+              
+            <div class="col-md-4">
+             <a [routerLink]="['/contact']" style="color:white" class="nav-item nav-link ">Contact</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</nav>
+</div>
+
+

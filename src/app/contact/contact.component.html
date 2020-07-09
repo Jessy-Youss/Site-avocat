@@ -1,0 +1,79 @@
+<div style="background-color: black;  margin-bottom: -2rem;">
+
+
+  <div class="container mx-auto bg-dark" style=" max-width:45rem;">
+    <div class="row">
+
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <p class="navbar-nav  navbar-expand-md navbar-expand-sm" style="color:white;">Vous êtes ici :<a
+            [routerLink]="['']" style="color:white">Home></a>Contact</p>
+      </div>
+
+    </div>
+
+    <h3 style="color:white">Cabinet au Barreau de Paris</h3>
+    <br>
+
+    <h4 style="color:white">Vos coordonnées </h4>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" style="color:grey; padding-bottom:2rem;">
+
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Nom</label>
+        <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="Nom"
+          [class.is-invalid]="profileForm.get('firstName').invalid && profileForm.get('firstName').touched">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputAddress">Prenom</label>
+        <input type="text" class="form-control" formControlName="nom" id="inputAddress" placeholder="Prenom" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputAddress2">Téléphone</label>
+        <input type="text" class="form-control" formControlName="telephone" id="inputAddress2" placeholder="Téléphone"
+          required>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputCity">E-mail </label>
+        <input type="email" class="form-control" placeholder="E-Mail" formControlName="email" id="inputCity"
+          [class.is-invalid]="profileForm.get('email').invalid && profileForm.get('email').touched">
+        <div *ngIf="(primEmail.invalid && primEmail.touched) || primEmail.dirty">
+          <small *ngIf="primEmail.errors?.required" class="text-danger">E-mail requis</small>
+          <!--question mark(?) is a safe navigation operator-->
+          <small *ngIf="primEmail.errors?.pattern" class="text-danger">E-mail non valide</small>
+        </div>
+      </div>
+
+
+      <div class="form-group col-md-6">
+
+        <label for="subject">Message</label>
+        <textarea id="subject" class="form-control" formControlName="message" name="subject" placeholder="Message"
+          style="height:200px" required></textarea>
+
+      </div>
+      <div class="form-group col-md-6">
+        <button type="submit" class="btn btn-light" style="width:15rem;"
+          [disabled]="!profileForm.valid">Envoyer</button>
+        <br>
+  
+      </div>
+      <div *ngIf="message_validation" class="alert alert-success" role="alert"><strong>Message Envoyé</strong> </div>
+    </form>
+
+  </div>
+
+
+
+
+</div>
+
+<footer class="page-footer font-small  " style="background-color: grey;">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="margin-top:2rem;">© 2020 Copyright:
+    <a href="/"> Avocat au Barreau de Paris</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
