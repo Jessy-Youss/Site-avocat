@@ -11,8 +11,8 @@ app.use(cors())
 
 // Mail : Recevoir question du cllient.
 app.post('/mail1',(req,res)=>{
-  var api_key = 'f6502bf5c938571283bb5937aa1d7829-468bde97-869f2c5d';
-  var domain = 'sandbox4f3ebdea96ac42e5a460a71f8ece2e24.mailgun.org';
+  var api_key = api_key;
+  var domain = domain;
   var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
    
   var nom = req.body.nom
@@ -21,7 +21,7 @@ app.post('/mail1',(req,res)=>{
   
   var data = {
     from: email,
-    to: 'testtest95350@gmail.com',
+    to: 'testtest@gmail.com',
     subject: 'Question de '+nom,
     text: message
   };
@@ -49,13 +49,13 @@ var Email= req.body.email
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'testtest95350@gmail.com',
-    pass: 'azertyuiop9535095350'
+    user: 'testtest@gmail.com',
+    pass: '123456'
   }
 });
 
 var mailOptions = {
-  from: 'testtest95350@gmail.com',
+  from: 'testtest@gmail.com',
   to: Email,
   subject: 'Confirmation du RDV',
   text: "Bonjour Madame, Monsieur "+Nom+", nous vous confirmons votre rendez vous le "+JourRdv+" à l'heure de "+HeureRdv+" ."
